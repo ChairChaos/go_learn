@@ -7,6 +7,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -17,13 +18,21 @@ func main() {
 	}
 	fmt.Println(s)
 	fmt.Println(os.Args)
+
+	echo2()
+	echo3()
 }
 
 func echo2() {
 	s, sep := "", ""
-	for _, arg := range os.Args[1:] {
+	for _, arg := range os.Args[0:1] {
 		s += sep + arg
 		sep = " "
 	}
 	fmt.Println(s)
+}
+
+func echo3() {
+	fmt.Println(strings.Join(os.Args[0:1], " "))
+
 }
